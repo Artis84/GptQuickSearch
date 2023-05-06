@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "ChatGpt Quick Search",
+    "version": "1.0",
+    "description": "Ask ChatGPT like a google search.",
+    "icons": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    },
+    "permissions": ["tabs", "storage"],
+    "background.service_worker": {
+        "js": ["scripts/background.js.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "js": ["scripts/content.js"],
+            "matches": ["https://www.google.com/search*", "https://chat.openai.com/*"]
+        }
+    ]
+}
